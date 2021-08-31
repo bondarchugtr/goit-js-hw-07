@@ -6,3 +6,4 @@ items.forEach.call(items, (element) => {
     console.log(`Категория: ${title} / Количество элементов: ${itemsLength}`);
 });
 
+

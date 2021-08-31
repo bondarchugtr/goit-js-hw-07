@@ -14,22 +14,20 @@ const images = [
 ];
 
 const elementGallery = document.querySelector('#gallery')
-const addGalleryEl = document.createAttribute('li');
-const imgGalleruEl = document.createAttribute('img')
-// imgGalleruEl.url = (`${url}`)
-// imgGalleruEl.alt = (`${alt}`)
-console.log(imgGalleruEl)
-const elementGalery = (element) => {
-    return element.map((el) => {
 
-        return imgGalleruEl
-    });
+const galleryElement = ({ url, alt }) => {
+    const addGalleryEl = document.createElement('li');
+    addGalleryEl.style.marginLeft = '5px';
 
+    const imgGalleryEl = document.createElement('img');
+    imgGalleryEl.style.width = '320px';
+    imgGalleryEl.src = `${url}`
+    imgGalleryEl.alt = `${alt}`
+
+    elementGallery.append(addGalleryEl, imgGalleryEl);
+    elementGallery.style.display = 'Flex';
 }
-
-
-
-
-
-
-
+const imgElementAdd = images
+    .map(galleryElement)
+    .join('')
+elementGallery.insertAdjacentHTML("beforeend", imgElementAdd)

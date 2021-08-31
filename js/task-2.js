@@ -10,9 +10,6 @@ const ingredients = [
 ];
 
 const ingredientsEl = document.querySelector('#ingredients')
-console.log(ingredientsEl)
-const itemEl = document.createElement('li');
-
 const addItem = (element) => {
     return element.map((el) => {
         const itemEl = document.createElement('li');
@@ -20,9 +17,8 @@ const addItem = (element) => {
         return itemEl
     })
 }
-
 ingredientsEl.append(...addItem(ingredients))
-console.log(itemEl)
+
 
 
 

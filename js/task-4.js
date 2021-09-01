@@ -1,33 +1,39 @@
 const refs = {
     decrementBtn: document.querySelector('[data-action="decrement"]'),
     incrementBtn: document.querySelector('[data-action="increment"]'),
-
+    values: document.querySelector('#value')
 }
-
 refs.decrementBtn.addEventListener('click', onDecrementBtn);
-refs.incrementBtn.addEventListener('click', onIncrementBtn);
+refs.incrementBtn.addEventListener('click', onIncrementBtn)
 
-let counterValue = 1;
+function addValue() {
 
-// const counterValue = () => {
+    let counterValue = 0;
+    function decrementBtn() {
+        return (counterValue -= 1)
+    }
 
-//     function decrementBtn() {
+    function incrementBtn() {
+        return (counterValue += 1);
+    }
 
-//         return (total -= 1);
-//     }
-//     function incrementBtn() {
-//         return (total += 1);
-//     }
-//     console.log(total)
-// };
+    return { decrementBtn, incrementBtn }
+};
 
 function onDecrementBtn(event) {
-    event = counterValue -= 1
     console.log(event)
 }
-
 function onIncrementBtn(event) {
-
     console.log(event)
-    return (event += 1)
 }
+
+
+// const btnDecr = document.querySelector('[data-action="decrement"]');
+// const btnIncr = document.querySelector('[data-action="increment"]');
+// const spanVal = document.querySelector("#value");
+// let counterValue = 0;
+// const increment = () => (spanVal.textContent = counterValue += 1);
+// const decrement = () => (spanVal.textContent = counterValue -= 1);
+// btnDecr.addEventListener("click", decrement);
+// btnIncr.addEventListener("click", increment);
+

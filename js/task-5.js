@@ -5,12 +5,12 @@
 //     nameOutput: document.querySelector('#name-output'),
 // }
 
-
 // refs.nameInput.addEventListener('input', onInputChange);
 // function onInputChange(event) {
 //     refs.nameOutput.textContent = refs.nameInput.value;
 //     console.log('Значение ввода:', event)
 // }
+
 
 const refs = {
     spanValueAdd: document.querySelector("span"),
@@ -18,14 +18,14 @@ const refs = {
     nameOutput: document.querySelector('#name-output'),
 }
 
-refs.nameInput.addEventListener('input', onInputChange);
 
 
 const test = document.createElement('data-action');
 test.value = 'Незнакомец'
 refs.spanValueAdd.append(test)
-
 console.log(refs.spanValueAdd)
+
+refs.nameInput.addEventListener('input', onInputChange);
 
 
 function onInputChange(event) {
@@ -37,7 +37,7 @@ function onInputChange(event) {
         console.log('Значение ввода:', event)
 
     } else if (refs.nameOutput.value === '') {
-        refs.nameOutput.textContent = defaultInputValue
+        refs.nameOutput.textContent
         console.log('Значение по умолчанию:', event)
     }
 }

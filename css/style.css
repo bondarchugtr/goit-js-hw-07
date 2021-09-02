@@ -2,9 +2,7 @@ a{
     text-decoration: none;
 }
 
-.link{
-    display: flex;
-}
+
 
 .link__task{
 margin-left: 10px;

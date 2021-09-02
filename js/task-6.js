@@ -1,25 +1,16 @@
-const refs = {
-    dataLength: document.getElementById('validation-input'),
-}
 
+const dataLength = document.getElementById('validation-input');
+const valueDataSet = dataLength.getAttribute('data-length');
 
-const dataSet = refs.dataLength.dataset.length;
-const valueLength = refs.dataLength.value.length;
-console.log(refs.dataLength.value.length)
-console.log(dataSet)
+dataLength.addEventListener('blur', onInputVerification)
 
-refs.dataLength.addEventListener('pure', onInputVerification)
+function onInputVerification() {
 
-console.log(refs.dataLength)
-
-function onInputVerification(event) {
-    if (valueLength == (Number(dataSet))) {
-        refs.dataLength.classList.add('valid')
-        console.log(event)
-
+    console.log(dataLength.value.length)
+    if (Number(valueDataSet) !== dataLength.value.length) {
+        dataLength.classList.add('invalid')
     } else {
-        refs.dataLength.classList.add('invalid')
-        console.log(event)
-
+        dataLength.classList.remove('invalid')
+        dataLength.classList.add('valid')
     }
 }

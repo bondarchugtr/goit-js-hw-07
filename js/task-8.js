@@ -38,7 +38,6 @@ refs.container.forEach((el) => {
         el.addEventListener('click', onDestroyBtRemoveElents)
     }
 })
-
 function onDestroyBtRemoveElents() {
     refs.boxesContainer.innerHTML = ''
     refs.input.value = ''

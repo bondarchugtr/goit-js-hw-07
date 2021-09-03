@@ -14,28 +14,33 @@ const onRenderBtAddElents = (event) => {
 
     for (let el = 0; el < event; el += 1) {
         creatBoxes.push(document.createElement('div'))
-        creatBoxes[el].style.width = widthBt += 'px'
-        creatBoxes[el].style.height = hightBT += 'px'
-        creatBoxes[el].style.backgroundColor = 'rgb(' +
-            Math.floor(Math.random() * 255) + 1 + ',' + Math.floor(Math.random() * 255) + 1
-            + ',' + (Math.floor(Math.random() * 255));
+        creatBoxes[el].style.width = widthBt + 'px'
+        creatBoxes[el].style.height = hightBT + 'px'
         widthBt += step;
         hightBT += step;
+        creatBoxes[el].style.backgroundColor = 'rgb(' +
+            Math.floor(Math.random() * 255) + 1 + ','
+            + Math.floor(Math.random() * 255) + 1
+            + ','
+            + (Math.floor(Math.random() * 255));
     }
+
     refs.boxesContainer.append(...creatBoxes)
 }
-const onDestroyBtRemoveElents = (event) => {
+
+refs.container.forEach((el) => {
+    if (el === refs.renderBt) {
+        el.addEventListener('click', () => {
+            onRenderBtAddElents(refs.input.value)
+        })
+
+    } else {
+        el.addEventListener('click', onDestroyBtRemoveElents)
+    }
+})
+
+function onDestroyBtRemoveElents() {
     refs.boxesContainer.innerHTML = ''
     refs.input.value = ''
 
 }
-refs.container.forEach((ell) => {
-    if (ell === refs.renderBt) {
-        ell.addEventListener('click', () => {
-            onRenderBtAddElents(refs.input.value)
-
-        })
-    } else {
-        ell.addEventListener('click', onDestroyBtRemoveElents)
-    }
-})

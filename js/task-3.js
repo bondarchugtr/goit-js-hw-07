@@ -30,4 +30,4 @@ const galleryElement = ({ url, alt }) => {
 const imgElementAdd = images
     .map(galleryElement)
     .join('')
-elementGallery.insertAdjacentHTML("beforeend", imgElementAdd)
+elementGallery.insertAdjacentHTML("beforeend", `${imgElementAdd}`)

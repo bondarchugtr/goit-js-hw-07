@@ -11,16 +11,18 @@ function onInputVerification() {
     if (Number(valueDataSet) === dataLength.value.length) {
         valueEqualValidation()
     } else {
-        valueEqualValidation()
+        valueNotEqualValidation()
     }
 }
-function valueEqualValidation() {
+function valueEqualValidation(val) {
     dataLength.classList.remove('invalid')
     dataLength.classList.add('valid')
+    return val;
 }
 
-function valueNotEqualValidation() {
+function valueNotEqualValidation(inval) {
     dataLength.classList.add('invalid')
     dataLength.classList.remove('valid')
+    return inval;
 }
 

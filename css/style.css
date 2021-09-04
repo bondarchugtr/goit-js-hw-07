@@ -2,8 +2,6 @@ a{
     text-decoration: none;
 }
 
-
-
 .link__task{
 margin-left: 10px;
 }
@@ -18,4 +16,5 @@ margin-left: 10px;
 
 #validation-input.invalid {
   border-color: #f44336;
+  
 }

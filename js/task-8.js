@@ -18,28 +18,33 @@ const onRenderBtAddElents = (event) => {
         creatBoxes[el].style.height = hightBT + 'px'
         widthBt += step;
         hightBT += step;
-        creatBoxes[el].style.backgroundColor = 'rgb(' +
-            Math.floor(Math.random() * 255) + 1 + ','
-            + Math.floor(Math.random() * 255) + 1
-            + ','
-            + (Math.floor(Math.random() * 255));
+        creatBoxes[el].style.margin = '10px auto 10px'
+        creatBoxes[el].style.display = 'flex'
+        creatBoxes[el].style.justifyContent = 'center'
+        creatBoxes[el].style.justifyContent = 'center'
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        let col = `rgb(${r},${g},${b})`;
+        creatBoxes[el].style.backgroundColor = col;
+
+        refs.boxesContainer.append(...creatBoxes)
     }
 
-    refs.boxesContainer.append(...creatBoxes)
 }
-
 refs.container.forEach((el) => {
     if (el === refs.renderBt) {
         el.addEventListener('click', () => {
+            onDestroyBtRemoveElents()
             onRenderBtAddElents(refs.input.value)
         })
-
     } else {
         el.addEventListener('click', onDestroyBtRemoveElents)
     }
 })
+
 function onDestroyBtRemoveElents() {
     refs.boxesContainer.innerHTML = ''
-    refs.input.value = ''
-
 }
+
+

@@ -16,18 +16,10 @@ const images = [
 const elementGallery = document.querySelector('#gallery')
 
 const galleryElement = ({ url, alt }) => {
-    const addGalleryEl = document.createElement('li');
-    addGalleryEl.style.marginLeft = '5px';
+    return `<li style="list-style: none;">
+    <img src="${url}" alt="${alt}" style="width: 120px; display:">
+    </li>`;
+};
 
-    const imgGalleryEl = document.createElement('img');
-    imgGalleryEl.style.width = '320px';
-    imgGalleryEl.src = `${url}`
-    imgGalleryEl.alt = `${alt}`
-
-    elementGallery.append(addGalleryEl, imgGalleryEl);
-    elementGallery.style.display = 'Flex';
-}
-const imgElementAdd = images
-    .map(galleryElement)
-    .join('')
-elementGallery.insertAdjacentHTML("beforeend", `${imgElementAdd}`)
+const imgElementAdd = images.map(galleryElement).join("");
+elementGallery.insertAdjacentHTML("beforeend", imgElementAdd);

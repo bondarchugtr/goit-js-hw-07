@@ -4,25 +4,15 @@ const valueDataSet = dataLength.getAttribute('data-length');
 
 dataLength.addEventListener('blur', onInputVerification)
 
-
 function onInputVerification() {
-
-    console.log(dataLength.value.length)
     if (Number(valueDataSet) === dataLength.value.length) {
-        valueEqualValidation()
+        updateClassElem("invalid", "valid");
     } else {
-        valueNotEqualValidation()
+        updateClassElem("valid", "invalid");
     }
 }
-function valueEqualValidation(val) {
-    dataLength.classList.remove('invalid')
-    dataLength.classList.add('valid')
-    return val;
-}
-
-function valueNotEqualValidation(inval) {
-    dataLength.classList.add('invalid')
-    dataLength.classList.remove('valid')
-    return inval;
+function updateClassElem(add, rem) {
+    dataLength.classList.remove(add);
+    dataLength.classList.add(rem);
 }
 
